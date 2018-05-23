@@ -8,8 +8,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import suites.Setup.Driver;
 
-import java.net.MalformedURLException;
-
 public class BaseSetupStepDef implements En {
   static WebDriver driver;
   static PageGenerator page;
@@ -20,13 +18,9 @@ public class BaseSetupStepDef implements En {
   }
 
   private static void setupDriver(Scenario scenario) {
-    try {
-      Driver.getInstance().setDriver(getDriverBrowser(scenario));
-      driver = Driver.getInstance().getDriver();
-      page = new PageGenerator(driver);
-    } catch (MalformedURLException e) {
-      System.err.println("Error with driver!");
-    }
+    Driver.getInstance().setDriver(getDriverBrowser(scenario));
+    driver = Driver.getInstance().getDriver();
+    page = new PageGenerator(driver);
   }
 
   private static Driver.WebDriverType getDriverBrowser(Scenario scenario) {

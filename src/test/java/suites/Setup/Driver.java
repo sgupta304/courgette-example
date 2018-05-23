@@ -9,9 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 public class Driver {
 	private static Driver instance;
 	private ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
@@ -38,8 +35,7 @@ public class Driver {
 		return instance;
 	}
 
-	public void setDriver(WebDriverType driverType) throws MalformedURLException {
-		URL localHost = new URL("http://127.0.0.1:4723/wd/hub");
+	public void setDriver(WebDriverType driverType) {
 		switch (driverType) {
 			case CHROME:
 				WebDriverBinaryDownloader.create().downloadLatestBinaryAndConfigure(BrowserType.CHROME);

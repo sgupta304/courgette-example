@@ -5,8 +5,6 @@ import cucumber.api.testng.PickleEventWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 import gherkin.events.PickleEvent;
 import org.testng.annotations.Test;
-import suites.Setup.ConfigFileReader;
-import suites.Setup.EnvironmentOption;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
