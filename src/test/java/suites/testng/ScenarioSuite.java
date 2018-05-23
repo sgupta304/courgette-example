@@ -14,9 +14,9 @@ import org.testng.annotations.Test;
         showTestOutput = true,
         reportTargetDir = "build",
         cucumberOptions = @CucumberOptions(
-                features = "src/test/resources/features",
+                features = "/tmp",
                 glue = "steps",
-                tags = {"@regression", "not @excluded"},
+                tags = {"@regression"},
                 plugin = {
                         "pretty",
                         "json:build/cucumber-report/cucumber.json",

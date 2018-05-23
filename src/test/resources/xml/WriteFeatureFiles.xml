@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="WebApps">
+    <test name="Write Feature Files">
+        <classes>
+            <class name="suites.testng.WriteFeatureFiles"/>
+        </classes>
+    </test> <!-- Test -->
+</suite><!-- Suite -->

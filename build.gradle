@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'idea'
 
 compileJava {
     sourceCompatibility = 1.8
@@ -14,34 +15,16 @@ dependencies {
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.11.0'
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-ie-driver', version: '3.11.0'
 
+    compile group: 'io.cucumber', name: 'cucumber-testng', version: '2.3.1'
     testCompile 'io.github.prashant-ramcharan:courgette-jvm:2.3.2'
     testCompile 'io.github.prashant-ramcharan:webdriver-binary-downloader:1.2.2'
 }
 
-tasks.withType(Test) {
-    systemProperties = System.getProperties()
-}
-
-task runFeaturesUsingJUnit(type: Test) {
-    include '**/suites/junit/FeatureSuite.class'
-    outputs.upToDateWhen { false }
-}
-
-task runScenariosUsingJUnit(type: Test) {
-    include '**/suites/junit/ScenarioSuite.class'
-    outputs.upToDateWhen { false }
-}
-
-task runFeaturesUsingTestNG(type: Test) {
-    useTestNG()
-
-    include '**/suites/testng/FeatureSuite.class'
-    outputs.upToDateWhen { false }
-}
-
-task runScenariosUsingTestNG(type: Test) {
-    useTestNG()
-
-    include '**/suites/testng/ScenarioSuite.class'
-    outputs.upToDateWhen { false }
+test {
+    useTestNG() {
+        systemProperty "test.environment", System.getProperty("test.environment")
+        useDefaultListeners()
+        configFailurePolicy = "continue"
+        suites file('testng.xml')
+    }
 }
