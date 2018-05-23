@@ -1,4 +1,4 @@
-package suites.testng;
+package suites.Setup;
 
 public class EnvironmentOption {
 	private String Browser;

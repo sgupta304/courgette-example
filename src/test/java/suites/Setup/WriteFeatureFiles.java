@@ -1,9 +1,12 @@
-package suites.testng;
+package suites.Setup;
 
+import cucumber.api.CucumberOptions;
 import cucumber.api.testng.PickleEventWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 import gherkin.events.PickleEvent;
 import org.testng.annotations.Test;
+import suites.Setup.ConfigFileReader;
+import suites.Setup.EnvironmentOption;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,6 +16,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+@CucumberOptions(
+				tags = {"@regression"},
+				features = "src/test/resources/features"
+)
 public class WriteFeatureFiles {
 	private TestNGCucumberRunner testNGCucumberRunner;
 	private Object[][] scenarios;

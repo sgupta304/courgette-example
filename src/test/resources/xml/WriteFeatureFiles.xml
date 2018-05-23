@@ -3,7 +3,7 @@
 <suite name="WebApps">
     <test name="Write Feature Files">
         <classes>
-            <class name="suites.testng.WriteFeatureFiles"/>
+            <class name="suites.Setup.WriteFeatureFiles"/>
         </classes>
     </test> <!-- Test -->
 </suite><!-- Suite -->

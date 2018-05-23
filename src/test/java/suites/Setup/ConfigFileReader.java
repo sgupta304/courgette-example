@@ -1,4 +1,4 @@
-package suites.testng;
+package suites.Setup;
 
 import java.io.FileInputStream;
 import java.io.IOException;

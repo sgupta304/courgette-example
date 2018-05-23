@@ -14,28 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestSteps {
-    private WebDriver driver;
-
-    @Before
-    public void before() {
-        WebDriverBinaryDownloader.create().downloadLatestBinaryAndConfigure(BrowserType.CHROME);
-        driver = new ChromeDriver();
-    }
-
-    @After
-    public void after(Scenario scenario) {
-        if (scenario.isFailed()) {
-            scenario.write("Scenario failed so capturing a screenshot");
-
-            TakesScreenshot screenshot = (TakesScreenshot) driver;
-            scenario.embed(screenshot.getScreenshotAs(OutputType.BYTES), "image/png");
-        }
-        if (driver != null) {
-            driver.quit();
-        }
-    }
-
+public class TestSteps extends BaseSetupStepDef{
     @Given("^I navigate to Stack Overflow$")
     public void iNavigateToStackOverflow() {
         driver.navigate().to("https://stackoverflow.com/");
